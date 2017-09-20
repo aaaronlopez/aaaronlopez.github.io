@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      body {
+        margin: 0;
+        word-wrap: break-word;
+        padding-top: 5rem;
+      }
+      /* ============ Portrait ============ */
+      .main-image {
+        width: 100%;
+        height: 250px;
+        height: 75vw;
+        {{#if link_data.$og_image_url}}
+        background-image: url({{link_data.$og_image_url}});
+        {{else}}
+          {{#if app.og_image_url}}
+          background-image: url({{app.og_image_url}});
+          {{/if}}
+        {{/if}}
+        background-size: cover;
+        background-position:top center;
+      }
+      #content-container {
+        box-sizing:border-box;
+        padding: 24px;
+        margin:0 24px 0 24px;
+        background-color: #ffffff;
+      }
+      .app-title {
+        font-size: 14px;
+        padding-bottom: 11px;
+        text-transform: uppercase;
+      }
+      .card-title {
+        font-size: 33px;
+        line-height: 36px;
+      }
+      .app-content {
+        padding-top: 10px;
+        padding-bottom:100px;
+        font-size: 20px;
+      }
+      .input-wrapper {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width:100%;
+        height:110px;
+        background-color: white;
+        -webkit-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+        -moz-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+        box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+      }
+      .input-container {
+        width:100%;
+        padding:0 24px;
+        text-align:center;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .form-get-the-app {
+        text-align:center;
+        padding-top: 10px;
+        border-top: 2px solid #CECECE;
+      }
+      .form-get-the-app > input {
+        margin-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #FFFFFF;
+        border: 1px solid #979797;
+        border-radius: 2px;
+        font-size: 60px;
+        color: #CECECE;
+        line-height: 24px;
+        padding-left: 20px;
+      }
+      .input-label {
+        padding-bottom: 4px;
+        font-size: 13px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: hidden;
+        word-wrap: break-word;
+        padding-top: 4px;
+        text-align: center;
+      }
+      .app-icon {
+        content:" ";
+        float:left;
+        display:inline-block;
+        width:62px;
+        height: 62px;
+        line-height: 62px;
+        background-size:100% auto;
+        {{#if app.og_image_url}}
+        background-image: url({{app.og_image_url}});
+        {{/if}}
+      }
+      .cta-button {
+        display:block;
+        height: 62px;
+        line-height:62px;
+        background-color: #444444;
+        border-radius: 2px;
+        font-size: 20px;
+        padding:0 20px;
+        margin-left:70px;
+        color: #FFFFFF;
+        text-align: center;
+        text-decoration: none;
+      }
+      /* No data (portrait) */
+      @media only screen and (orientation: portrait) {
+        .card--no-data .main-image {
+          background-image: url("http://s3-us-west-1.amazonaws.com/branch-assets/b_stripes-small.png");
+          background-size: auto;
+          background-position: top center;
+          background-repeat: repeat;
+          height: 190px;
+        }
+        .card--no-data > .app-icon {
+          position: absolute;
+          top: 160px;
+          left: 34px;
+        }
+        .card--no-data #content-container {
+          margin-top:20px;
+        }
+      }
+      @media screen /* >= iPhone 5 */
+      and (min-device-width: 321px) {
+        .input-label {
+          font-size: 14px;
+        }
+      }
+      @media only screen /* >= iPhone 6 */
+      and (min-device-width: 375px)
+      and (orientation: portrait) {
+        .main-image {
+          height:300px;
+          height: 80vw;
+        }
+        .app-content {
+          padding-bottom:120px;
+        }
+        .input-wrapper {
+          height:115px;
+        }
+      }
+      @media only screen /* >= iPhone 6+ */
+      and (min-device-width: 414px)
+      and (orientation: portrait) {
+        .main-image {
+          height:390px;
+          height: 95vw;
+        }
+      }
+      /* ============ Landscape ============ */
+      @media only screen and (orientation: landscape){
+        .main-image {
+          position:fixed;
+          height:100%;
+          height:100vh;
+          width: 50%;
+        }
+        .input-wrapper {
+          right:0;
+          left:auto;
+          width:50%;
+        }
+        #content-container {
+          float:left;
+          width:50%;
+          margin-left:50%;
+        }
+        .input-wrapper {
+          height:108px;
+        }
+        .app-content {
+          padding-bottom:110px;
+        }
+        .form-get-the-app {
+          padding-top:8px;
+        }
+        .input-container {
+          left: 50%;
+        }
+        .cta-button {
+          height: 44px;
+          line-height: 44px;
+          padding:0 5px;
+          margin-left:50px;
+        }
+        .app-icon {
+          width: 44px;
+          height: 44px;
+        }
+        /* No data (landscape) */
+        .card--no-data .main-image {
+          height: 100%;
+        }
+        .card--no-data > .app-icon {
+          display:none;
+        }
+        .card--no-data #content-container {
+          margin-top:0;
+        }
+      }
+      @media only screen /* >= iPhone 6 */
+      and (min-device-width: 645px)
+      and (orientation: landscape) {
+        .form-get-the-app {
+          padding-top:8px;
+        }
+        .cta-button {
+          height: 62px;
+          line-height: 62px;
+          padding:0 20px;
+          margin-left:70px;
+        }
+        .app-icon {
+          width: 62px;
+          height: 62px;
+          top:-2px;
+        }
+      }
+
+      .text-bold {
+        font-family: "Open Sans", Helvetica, serif;
+        font-weight: 700
+      }
+      .text-light {
+        font-family: "Open Sans", Helvetica, serif;
+        font-weight: 300;
+      }
+      .cta-button--no-app-icon {
+        margin-left:0;
+      }
+
+      .navbar .navbar-brand {
+        padding-top: 0px;
+      }
+
+      .navbar .navbar-brand img {
+        height: 50px;
+      }
+
+      .fa-plus {
+        color: #4f5963;
+      }
+
+      .fa-minus {
+        color: #4f5963;
+      }
+
+      tr.pass {
+        border-left: 10px solid #20b956;
+      }
+
+      tr.warn {
+        border-left: 10px solid #ffcb02;
+      }
+
+      tr.fail {
+        border-left: 10px solid #d43c3a;
+      }
+
+      tr.change {
+        border-left: 10px solid #1dadce;
+      }
+
+      tr.detail {
+        border-left: 10px solid #dddfe2;
+      }
+
+      img.blue {
+        -webkit-filter: hue-rotate(165deg);
+      }
+
+      .btn-primary,
+      .btn-primary:hover,
+      .btn-primary:focus,
+      .btn-primary:active,
+      .btn-primary.active {
+        color: #fff;
+        border: 1px solid #1cadce;
+        background-color: #1cadce;
+        margin: 4px;
+      } 
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="https://branch.io"><img src="https://branch.io/img/logo_white.png" alt="BranchMetrics" title="Branch Metrics"/> Rebar</a>
+    </nav>
+    
+    <div class="container">
+      <h1 class="display-5">{{app.name}}'s
+        <small class="text-muted">{{link_data.os}} deep link routing test</small>
+      </h1>
+      <br>
+      <div class="row">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Test</th>
+              <th>Link</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="t1">
+              <th scope="row">1</th>
+              <td>Deferred deep link routing</td>
+              <th><a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t1&os={{link_data.os}}">Link</a></th>
+              <td>
+                {{#equal link_data.t1 'g'}}
+                  <img src="https://branch.io/resources/universal-links/static/images/pass.svg">
+                {{/equal}}
+                {{#equal link_data.t1 'r'}}
+                  <img src="https://branch.io/resources/universal-links/static/images/fail.svg">
+                {{/equal}}
+                {{#equal link_data.t1 'b'}}
+                  <img class="blue" src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                {{/equal}}
+                {{#equal link_data.t1 'na'}}
+                  <img src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                {{/equal}}
+              </td>
+              <td onclick="trigger()" class="detail-cell" data-toggle="collapse" data-target="#t1-detail" align="center" valign="center"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></td>
+            </tr>
+            <tr id="t1-detail" class="detail collapse table-secondary">
+              <td colspan="5">Step 1: Uninstall your app from your test device.<br>
+              Step 2: Click <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t1&os={{link_data.os}}">this link</a>.<br>
+              Step 3: Install and open your app.<br>
+              Step 4: Follow instructions on screen.</td>
+            </tr>
+            <tr id="t2">
+              <th scope="row">2</th>
+              <td>URI deep link from cold start</td>
+              <th><a href="{{link_data.dv_readable_url}}?_branch_validate=060514&$uri_redirect_mode=2&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t2&os={{link_data.os}}">Link</a></th>
+              <td>
+                  {{#equal link_data.t2 'g'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/pass.svg">
+                  {{/equal}}
+                  {{#equal link_data.t2 'r'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/fail.svg">
+                  {{/equal}}
+                  {{#equal link_data.t2 'b'}}
+                    <img class="blue" src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+                  {{#equal link_data.t2 'na'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+              </td>
+              <td onclick="trigger()" class="detail-cell" data-toggle="collapse" data-target="#t2-detail" align="center" valign="center"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></td>
+            </tr>
+            <tr id="t2-detail" class="collapse table-secondary">
+              <td colspan="5">{{#equal link_data.os 'iOS'}}
+                Step 1. Make sure app is installed but <b>not</b> running in the background.<br>
+                Step 2. Copy <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&$uri_redirect_mode=2&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t2&os={{link_data.os}}">this link</a> to your clipboard.<br>
+                Step 3. Paste it into Safari browser.<br>
+                Step 4. App should open with URI scheme.<br>
+                Step 5. Follow instructions on screen.<br>
+                {{/equal}}{{#equal link_data.os 'Android'}}
+                Step 1. Make sure app is installed but <b>not</b> running in the background.<br>
+                Step 2. Click <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&$uri_redirect_mode=2&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t2&os={{link_data.os}}">this link</a>.<br>
+                Step 3. Select Chrome to open the app in chooser for one time.<br>
+                Step 4. App should open with URI scheme.<br>
+                Step 5. Follow instructions on screen.<br>{{/equal}}
+              </td>
+            </tr>
+            <tr id="t3">
+              <th scope="row">3</th>
+              <td>{{#equal link_data.os 'iOS'}}Universal Link{{/equal}}{{#equal link_data.os 'Android'}}Android App Link{{/equal}} from cold start</td>
+              <th><a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t3&os={{link_data.os}}">Link</a></th>
+              <td>
+                  {{#equal link_data.t3 'g'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/pass.svg">
+                  {{/equal}}
+                  {{#equal link_data.t3 'r'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/fail.svg">
+                  {{/equal}}
+                  {{#equal link_data.t3 'b'}}
+                    <img class="blue" src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+                  {{#equal link_data.t3 'na'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+              </td>
+              <td onclick="trigger()" class="detail-cell" data-toggle="collapse" data-target="#t3-detail" align="center" valign="center"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></td>
+            </tr>
+            <tr id="t3-detail" class="collapse table-secondary">
+              <td colspan="5">{{#equal link_data.os 'iOS'}}
+                Step 1. Make sure app is installed but <b>not</b> running in the background.<br>
+                Step 2. Click <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t3&os={{link_data.os}}">this link</a>.<br>
+                Step 3. App should open with Universal Link.<br>
+                Step 4. Follow instructions on screen.<br>
+                {{/equal}}{{#equal link_data.os 'Android'}}
+                Step 1. Make sure app is installed but <b>not</b> running in the background.<br>
+                Step 2. Copy <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t3&os={{link_data.os}}">this link</a> to your clipboard.<br>
+                Step 3. Paste into another app, such as Slack or Messages.<br>
+                Step 4. Click the pasted link and select your app icon to open in the chooser for one time.<br>
+                Step 5. App should open with an Android App Link.<br>
+                Step 6. Follow instructions on screen.<br>
+                {{/equal}}</td>
+            </tr>
+            <tr id="t4">
+              <th scope="row">4</th>
+              <td>URI deep link with backgrounded app</td>
+              <th><a href="{{link_data.dv_readable_url}}?_branch_validate=060514&$uri_redirect_mode=2&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t4&os={{link_data.os}}">Link</a></th>
+              <td>
+                  {{#equal link_data.t4 'g'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/pass.svg">
+                  {{/equal}}
+                  {{#equal link_data.t4 'r'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/fail.svg">
+                  {{/equal}}
+                  {{#equal link_data.t4 'b'}}
+                    <img class="blue" src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+                  {{#equal link_data.t4 'na'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+              </td>
+              <td onclick="trigger()" class="detail-cell" data-toggle="collapse" data-target="#t4-detail" align="center" valign="center"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></td>
+            </tr>
+            <tr id="t4-detail" class="collapse table-secondary">
+              <td colspan="5">{{#equal link_data.os 'iOS'}}
+                Step 1. Make sure app is installed, and open it so that it is running in the background.<br>
+                Step 2. Copy <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&$uri_redirect_mode=2&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t4&os={{link_data.os}}">this link</a> to your clipboard.<br>
+                Step 3. Paste it into Safari browser.<br>
+                Step 4. App should open with URI scheme.<br>
+                Step 5. Follow instructions on screen.<br>
+                {{/equal}}{{#equal link_data.os 'Android'}}
+                Step 1. Make sure app is installed, and open it so that it is running in the background.<br>
+                Step 2. Click <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&$uri_redirect_mode=2&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t4&os={{link_data.os}}">this link</a>.<br>
+                Step 3. Select Chrome to open the app in chooser for one time.<br>
+                Step 4. App should open with URI scheme.<br>
+                Step 5. Follow instructions on screen.<br>
+                {{/equal}}</td>
+            </tr>
+            <tr id="t5">
+              <th scope="row">5</th>
+              <td>{{#equal link_data.os 'iOS'}}Universal Link{{/equal}}{{#equal link_data.os 'Android'}}Android App Link{{/equal}} with backgrounded app</td>
+              <th><a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t5&os={{link_data.os}}">Link</a></th>
+              <td>
+                  {{#equal link_data.t5 'g'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/pass.svg">
+                  {{/equal}}
+                  {{#equal link_data.t5 'r'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/fail.svg">
+                  {{/equal}}
+                  {{#equal link_data.t5 'b'}}
+                    <img class="blue" src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+                  {{#equal link_data.t5 'na'}}
+                    <img src="https://branch.io/resources/universal-links/static/images/warn.svg">
+                  {{/equal}}
+              </td>
+              <td onclick="trigger()" class="detail-cell" data-toggle="collapse" data-target="#t5-detail" align="center" valign="center"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></td>
+            </tr>
+            <tr id="t5-detail" class="collapse table-secondary">
+              <td colspan="5">{{#equal link_data.os 'iOS'}}
+                Step 1. Make sure app is installed, and open it so that it is running in the background.<br>
+                Step 2. Click <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t5&os={{link_data.os}}">this link</a>.<br>
+                Step 3. App should open with Universal Link.<br>
+                Step 4. Follow instructions on screen.<br>
+                {{/equal}}{{#equal link_data.os 'Android'}}
+                Step 1. Make sure app is installed, and open it so that it is running in the background.<br>
+                Step 2. Copy <a href="{{link_data.dv_readable_url}}?_branch_validate=060514&t1={{link_data.t1}}&t2={{link_data.t2}}&t3={{link_data.t3}}&t4={{link_data.t4}}&t5={{link_data.t5}}&ct=t5&os={{link_data.os}}">this link</a> to your clipboard.<br>
+                Step 3. Paste into another app, such as Slack or Messages.<br>
+                Step 4. Click the pasted link and select your app icon to open in the chooser for one time.<br>
+                Step 5. App should open with an Android App Link.<br>
+                Step 6. Follow instructions on screen.<br>
+                {{/equal}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-primary">Code Changed</button>
+      </div>
+      <br>
+      <div class="row">
+        <p class="text-muted">Disclaimer: This product is not affiliated with Apple nor Google. If you have questions about the tool, or encounter an issue with your deep link setup, please reach out to <a href="mailto:support@branch.io">support@branch.io</a>.</p>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        $(".collapse").on("shown.bs.collapse", function(){
+          $(this).prev().find("td.detail-cell").find("i").removeClass("fa-plus").addClass("fa-minus");
+        });
+
+        $(".collapse").on("hidden.bs.collapse", function(){
+          $(this).prev().find("td.detail-cell").find("i").removeClass("fa-minus").addClass("fa-plus");
+        });
+
+        $("#t1").addClass(
+                  {{#equal link_data.t1 'g'}}
+                    "pass"
+                  {{/equal}}
+                  {{#equal link_data.t1 'r'}}
+                    "fail"
+                  {{/equal}}
+                  {{#equal link_data.t1 'b'}}
+                    "change"
+                  {{/equal}}
+                  {{#equal link_data.t1 'na'}}
+                    "warn"
+                  {{/equal}});
+
+        $("#t2").addClass(
+                  {{#equal link_data.t2 'g'}}
+                    "pass"
+                  {{/equal}}
+                  {{#equal link_data.t2 'r'}}
+                    "fail"
+                  {{/equal}}
+                  {{#equal link_data.t2 'b'}}
+                    "change"
+                  {{/equal}}
+                  {{#equal link_data.t2 'na'}}
+                    "warn"
+                  {{/equal}});
+
+        $("#t3").addClass(
+                  {{#equal link_data.t3 'g'}}
+                    "pass"
+                  {{/equal}}
+                  {{#equal link_data.t3 'r'}}
+                    "fail"
+                  {{/equal}}
+                  {{#equal link_data.t3 'b'}}
+                    "change"
+                  {{/equal}}
+                  {{#equal link_data.t3 'na'}}
+                    "warn"
+                  {{/equal}});
+
+        $("#t4").addClass(
+                  {{#equal link_data.t4 'g'}}
+                    "pass"
+                  {{/equal}}
+                  {{#equal link_data.t4 'r'}}
+                    "fail"
+                  {{/equal}}
+                  {{#equal link_data.t4 'b'}}
+                    "change"
+                  {{/equal}}
+                  {{#equal link_data.t4 'na'}}
+                    "warn"
+                  {{/equal}});
+
+        $("#t5").addClass(
+                  {{#equal link_data.t5 'g'}}
+                    "pass"
+                  {{/equal}}
+                  {{#equal link_data.t5 'r'}}
+                    "fail"
+                  {{/equal}}
+                  {{#equal link_data.t5 'b'}}
+                    "change"
+                  {{/equal}}
+                  {{#equal link_data.t5 'na'}}
+                    "warn"
+                  {{/equal}});
+      });
+
+      function trigger(){}
+    </script>
+  </body>
+</html>
