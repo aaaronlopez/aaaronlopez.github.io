@@ -1,0 +1,25 @@
+<html>
+<head>
+<title> HTTP API test </title>
+</head>
+<body>
+<h1> HTTP API test </h1>
+<script type="text/javascript">
+	var http = new XMLHttpRequest();
+	var url = "https://api.branch.io/v1/url";
+	http.open("POST", url, true);
+
+	//Send the proper header information along with the request
+
+	http.setRequestHeader("Content-type", "application/json");
+	http.send(JSON.stringify({branch_key: "key_live_cpzfao6M0Kj6ZRh1c4sGSjimzEgy5ddA", alias: "DUPE2"}));
+
+	http.onreadystatechange = function() {//Call a function when the state changes.
+	    if(http.readyState == 4 && http.status == 200) {
+	        alert(http.responseText);
+	    }
+	}
+</script>
+</body>
+
+</html>
