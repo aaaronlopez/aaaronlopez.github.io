@@ -4,6 +4,8 @@
 <h1> Quotie2Aaron</h1>
 <input type="button" value="trigger" onclick="triggerEvent()">
 
+<button onclick="branch.deepviewCta()">deep link</button>
+
 <script type="text/javascript">
 	
 	(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-2.29.0.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
@@ -17,6 +19,17 @@
     branch.track('websdkevent');
     alert("success!");
   }
+	
+   var linkData = {
+  campaign: String(Date.now())
+};
+var linkOptions = {
+  make_new_link: false, // don't create a new deep link if one already exists (e.g. _branch_match_id is in the address bar)
+  open_app: false  // will attempt to open the app if install (URI Scheme deep linking only - will not work with Safari)
+};
+branch.deepview(linkData, linkOptions, function(err, data) {
+  console.log(err, data);
+});
 
 </script>
 
