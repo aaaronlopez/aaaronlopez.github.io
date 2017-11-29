@@ -16,7 +16,10 @@
   var listener = function(event, data) { console.log(event, data); alert("hiI'm a listener");}
 
   // Specify an event to listen for
-  branch.addListener('willShowBanner', listener);
+  branch.addListener('willShowJourney', listener);
+  branch.addListener('willCloseJourney', listener);
+  branch.addListener('didCloseJourney', listener);	
+	
 
   // Listen for all events
   branch.addListener(listener);
