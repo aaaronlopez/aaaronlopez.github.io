@@ -11,8 +11,9 @@
     console.log(err);
     console.log(data);
   });
+  alert("hi");
 	
-  var listener = function(event, data) { console.log(event, data); }
+  var listener = function(event, data) { console.log(event, data); alert("hiI'm a listener");}
 
   // Specify an event to listen for
   branch.addListener('willShowBanner', listener);
