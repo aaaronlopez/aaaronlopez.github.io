@@ -6,21 +6,23 @@
 <body>
 <h1> Journeys Test </h1>
 <script type="text/javascript">
-	(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
+  (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
   branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', function(err, data) {
     console.log(err);
     console.log(data);
-	  
-	  
-	  branch.setBranchViewData({
-  tags: ['tag1', 'tag2'],
-  data: {
-    mydata: 'something',
-    foo: 'bar',
-    '$deeplink_path': 'open/item/1234'
-  }
-});
   });
+	
+  var listenerA = function(event, data) { console.log(event, data); alert("Journey specific event");}
+  
+  var listenerB = function(event, data) { console.log(event, data); alert("All events");}
+
+  // Specify an event to listen for
+  branch.addListener('willShowJourney', listenerA);
+  branch.addListener('willCloseJourney', listenerA);
+  branch.addListener('didCloseJourney', listenerA);	
+
+  // Listen for all events
+  branch.addListener(listenerB);
 </script>
 </body>
 
