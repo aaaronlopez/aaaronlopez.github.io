@@ -12,17 +12,17 @@
     console.log(data);
   });
 	
-  var listenerA = function(event, data) { console.log(event, data); alert("Journey specific event");}
+  //var listenerA = function(event, data) { console.log(event, data); alert("Journey specific event");}
   
-  var listenerB = function(event, data) { console.log(event, data); alert("All events");}
+  //var listenerB = function(event, data) { console.log(event, data); alert("All events");}
 
   // Specify an event to listen for
-  branch.addListener('willShowJourney', listenerA);
-  branch.addListener('willCloseJourney', listenerA);
-  branch.addListener('didCloseJourney', listenerA);	
+  //branch.addListener('willShowJourney', listenerA);
+  //branch.addListener('willCloseJourney', listenerA);
+  //branch.addListener('didCloseJourney', listenerA);	
 
   // Listen for all events
-  branch.addListener(listenerB);
+  // branch.addListener(listenerB);
 </script>
 </body>
 
