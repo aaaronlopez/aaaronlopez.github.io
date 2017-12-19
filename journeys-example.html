@@ -13,6 +13,24 @@
     console.log(err);
     console.log(data);
   });
+
+  branch.setBranchViewData(
+      {
+          data: {
+              "websdk": 'setBranchViewData',
+              "$journeys_title": 'Journey Title Override',
+              "$journeys_description": 'QA Testing Web SDK setBranchViewData Journey Override',
+              "$journeys_reviews": '12345',
+              "$journeys_button_get_has_app": 'WebSDK Has App',
+              "$journeys_button_get_no_app": 'WebSDK No App',
+              "$journeys_icon_image_url": 'http://qaauto.branch.io/images/evernote.jpg'
+          },
+          channel: 'JOUR',
+          campaign: 'setBranchViewData',
+          tags: [ 'override' ],
+	  override: true
+      }
+  );
 	
   //var listenerA = function(event, data) { console.log(event, data); alert("Journey specific event");}
   
