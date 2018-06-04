@@ -5,17 +5,13 @@
 <body>
 <script type="text/javascript">
 	window.onload = function() {
-		window.top.location = "branchsters://open?adjust_external_click_id=530601765995298139&link_click_id=527998242180767186";
-		setTimeout(function timeout() {
-			if (document.webkitHidden || document.hidden) {
-				return;
-			}
-			if(confirm('Missing. Download it now?')){
-     				console.log("confirmed");
-   			} else {
-				window.top.location = "http://facebook.com";
-			}
-		}, 250);};
+	       var retVal = confirm("Do you want to continue ?");
+               if( retVal == true ){
+		  window.top.location = "branchsters://open?adjust_external_click_id=530601765995298139&link_click_id=527998242180767186";
+               } else {
+                  window.top.location = "http://facebook.com";
+               }
+	};
 </script>
 </body>
 </html>
