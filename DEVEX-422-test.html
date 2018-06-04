@@ -10,7 +10,11 @@
 			if (document.webkitHidden || document.hidden) {
 				return;
 			}
-			window.top.location = "http://google.com/?_branch_match_id=527998242180767186";
+			if(confirm('Missing. Download it now?')){
+     				console.log("confirmed");
+   			} else {
+				window.top.location = "http://facebook.com";
+			}
 		}, 250);};
 </script>
 </body>
