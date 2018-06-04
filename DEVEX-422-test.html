@@ -5,13 +5,13 @@
 <body>
 <script type="text/javascript">
 	window.onload = function() {
-	       var retVal = confirm("Do you want to continue ?");
-               if( retVal == true ){
-		  window.top.location = "branchsters://open?adjust_external_click_id=530601765995298139&link_click_id=527998242180767186";
-               } else {
-                  window.top.location = "http://facebook.com";
-               }
-	};
+		window.top.location = "branchsters://open?adjust_external_click_id=530601765995298139&link_click_id=527998242180767186";
+		setTimeout(function timeout() {
+			if (document.webkitHidden || document.hidden) {
+				return;
+			}
+			window.location = "http://google.com/?_branch_match_id=527998242180767186";
+		}, 250);};
 </script>
 </body>
 </html>
