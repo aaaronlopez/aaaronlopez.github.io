@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script type="text/javascript">
+		function unescapeHtml(escaped_str) {
+    var div = document.createElement('div');
+    div.innerHTML = escaped_str;
+    var child = div.childNodes[0];
+    return child ? child.nodeValue : null;
+}
+
+function validateProtocol(url) {
+	var parser = document.createElement('a');
+    parser.href = url;
+    var protocol = parser.protocol.toLowerCase();
+	if ([ 'javascript:', 'vbscript:', 'data:' ].indexOf(protocol) < 0) {
+		return url;
+	}
+	return null;
+}
+
+function validate(url) {
+	var unescaped_value = unescapeHtml(url);
+	if (unescaped_value && validateProtocol(unescaped_value)) {
+		return unescaped_value;
+	}
+	return '/';
+}
+			window.onload = function() {
+				document.getElementById("l").src = validate("spotify://track/5D8o9tGf3Dfjz7CgMxcoeI?link_click_id=533684393585007617");
+
+        // while(!window.alert) {window.top.location = validate("https://branch.io/?_branch_match_id=533684393585007617");}
+			};
+      window.setInterval(checkFocus, 100);
+
+      function checkFocus() {
+        if(document.hasFocus()) {
+          console.log('iframe has focus');
+          window.top.location = validate("https://branch.io/?_branch_match_id=533684393585007617");
+        } else {
+          console.log('iframe not focused');
+          document.getElementById("l").focus();
+          window.alert("Continue to website.");
+          window.top.location = validate("https://branch.io/?_branch_match_id=533684393585007617");
+        }
+      }
+		</script>
+		<iframe id="l" width="1" height="1" style="visibility:hidden"></iframe>
+	</body>
+</html>
