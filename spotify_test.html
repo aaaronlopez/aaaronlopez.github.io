@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 	<body>
 		<script type="text/javascript">
@@ -26,23 +26,38 @@ function validate(url) {
 	}
 	return '/';
 }
+
+      var decisionMade = false;
+      var interval;
 			window.onload = function() {
 				document.getElementById("l").src = validate("spotify://track/5D8o9tGf3Dfjz7CgMxcoeI?link_click_id=533684393585007617");
-
-        // while(!window.alert) {window.top.location = validate("https://branch.io/?_branch_match_id=533684393585007617");}
+        interval = window.setInterval(checkFocus, 100);
 			};
-      window.setInterval(checkFocus, 100);
 
+      var checkedURI = false;
+      var validURI = false;
+      var flag = false;
       function checkFocus() {
         if(document.hasFocus()) {
-          console.log('iframe has focus');
-          window.top.location = validate("spotify://track/5D8o9tGf3Dfjz7CgMxcoeI?link_click_id=533684393585007617");
+          if (checkedURI) {
+            clearInterval(interval);
+            console.log("send to fallback")
+            window.top.location = validURI ? validate("https://google.com") : validate("https://branch.io/?_branch_match_id=533684393585007617")
+            flag = true;
+          }
         } else {
-          console.log('iframe not focused');
-          document.getElementById("l").focus();
-          window.alert("Continue to website.");
-          window.top.location = validate("https://branch.io/?_branch_match_id=533684393585007617");
+          validURI = true;
+          checkFlag();
         }
+        checkedURI = true;
+      }
+
+      function checkFlag() {
+          if(flag == false) {
+             window.setTimeout(checkFlag, 100); /* this checks the flag every 100 milliseconds*/
+          } else {
+            window.top.location = validate("https://google.com");
+          }
       }
 		</script>
 		<iframe id="l" width="1" height="1" style="visibility:hidden"></iframe>
