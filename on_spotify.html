@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script type="text/javascript">
+		function unescapeHtml(escaped_str) {
+    var div = document.createElement('div');
+    div.innerHTML = escaped_str;
+    var child = div.childNodes[0];
+    return child ? child.nodeValue : null;
+}
+
+function validateProtocol(url) {
+	var parser = document.createElement('a');
+    parser.href = url;
+    var protocol = parser.protocol.toLowerCase();
+	if ([ 'javascript:', 'vbscript:', 'data:' ].indexOf(protocol) < 0) {
+		return url;
+	}
+	return null;
+}
+
+function validate(url) {
+	var unescaped_value = unescapeHtml(url);
+	if (unescaped_value && validateProtocol(unescaped_value)) {
+		return unescaped_value;
+	}
+	return '/';
+}
+
+      var decisionMade = false;
+      var interval;
+			window.onload = function() {
+				document.getElementById("l").src = validate("branchsters://open");
+        interval = window.setInterval(checkFocus, 100);
+			};
+
+      var checkedURI = false;
+      var validURI = false;
+      var flag = false;
+      function checkFocus() {
+        if(document.hasFocus()) {
+          if (checkedURI) {
+            clearInterval(interval);
+            console.log("send to fallback")
+            window.top.location = validURI ? validate("https://google.com") : validate("branchsters://open")
+            flag = true;
+          }
+        } else {
+          validURI = true;
+          checkFlag();
+        }
+        checkedURI = true;
+      }
+
+      function checkFlag() {
+          if(flag == false) {
+             window.setTimeout(checkFlag, 100); /* this checks the flag every 100 milliseconds*/
+          } else {
+            window.top.location = validate("https://google.com");
+          }
+      }
+		</script>
+		<iframe id="l" width="1" height="1" style="visibility:hidden"></iframe>
+	</body>
+</html>
