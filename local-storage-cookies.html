@@ -4,6 +4,8 @@
 </head>
 <body>
 <h1>Drop a cookie and save local storage</h1>
+<h2> COOKIES: </h2>
+<div id="cookies"></div>
 
 <script type="text/javascript">
 sessionStorage.setItem("mykey", "myvalue");
@@ -32,10 +34,10 @@ function getCookies() {
   return cookies;
 }
 
-alert("COOKIES: " + getCookies());
+document.getElementById('cookies').innerHTML = JSON.stringify(getCookies());
 </script>
 
-	
+
 </body>
 
 </html>
