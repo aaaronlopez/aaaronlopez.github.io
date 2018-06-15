@@ -11,8 +11,13 @@
 <h2> SESSION STORAGE: </h2>
 <div id="session"></div>
 
+<h2> LOCAL STORAGE: </h2>
+<div id="local"></div>
+
 <script type="text/javascript">
 sessionStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
+localStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
+
 
 function createCookie(name, value, days) {
     var date, expires;
@@ -40,6 +45,7 @@ function getCookies() {
 
 document.getElementById('cookies').innerHTML = JSON.stringify(getCookies());
 document.getElementById('session').innerHTML = JSON.stringify(Object.keys(sessionStorage));
+document.getElementById('local').innerHTML = JSON.stringify(Object.keys(localStorage));
 
 </script>
 
