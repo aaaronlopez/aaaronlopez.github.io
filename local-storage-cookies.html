@@ -17,12 +17,14 @@ function createCookie(name, value, days) {
     } else {
         expires = "";
     }
-    document.cookie = name+"="+value+expires+"; path=/";
+    return document.cookie = name+"="+value+expires+"; path=/";
 }
-createCookie(".25day", "myval", 0.25);
-createCookie(".5day", "myval", 0.5);
-createCookie("1day", "myval", 1);
-createCookie("100day", "myval", 100);
+var cookie1 = createCookie(".25day", "myval", 0.25);
+var cookie2 = createCookie(".5day", "myval", 0.5);
+var cookie3 = createCookie("1day", "myval", 1);
+var cookie4 = createCookie("100day", "myval", 100);
+
+alert("COOKIES: " + cookie1 + " " + cookie2 + " " + cookie3 + " " + cookie4);
 </script>
 
 	
