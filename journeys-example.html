@@ -8,9 +8,22 @@
 <h1> Journeys Test </h1>
 <script type="text/javascript">
   (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
-  //branch.init('key_live_kdyN8y9gPZecHJYZJhFEFmpfsxeMaG2X', { 'make_new_link' : true });
-  //branch.init('key_live_kdyN8y9gPZecHJYZJhFEFmpfsxeMaG2X');
+
   branch.init('key_live_josS8XQjiiSEp8XAEfOymdpdusaRIdAM');
+	
+  branch.setBranchViewData({
+    data: {
+        '$deeplink_path': 'product/692111/two-pieces-prom-dress-two-piece-evening-dress-2017-prom-gown-2-pieces-party-dress-long-prom-dress-ev',
+        '$canonical_url': 'https://www.luulla.com/product/692111/two-pieces-prom-dress-two-piece-evening-dress-2017-prom-gown-2-pieces-party-dress-long-prom-dress-ev',
+        'app_links': '1',
+        'product_id' : '692111',
+        'redirect_type' : 'product',
+        'is_in_app_safari' : '0',
+        'in_app_ios_app_name' : 'none',
+        'branch_page_type': 'product_detail_page',
+        'branch_is_full_page_journey': '0'
+      }
+  });	
 
 // var lang_code;
 // if (navigator.languages && navigator.languages.length>0) {
