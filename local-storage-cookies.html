@@ -22,7 +22,7 @@ function createCookie(name, value, days) {
 var cookieA = createCookie("1day" + Math.random().toString(36).substring(7), "myval", 1);
 var cookieB = createCookie("100day" + Math.random().toString(36).substring(7), "myval", 100);
 	
-var getCookies = function() {
+function getCookies() {
   var pairs = document.cookie.split(";");
   var cookies = {};
   for (var i=0; i<pairs.length; i++){
