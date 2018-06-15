@@ -38,7 +38,17 @@ function getCookies() {
   return cookies;
 }
 
+function getSessionStorage() {
+  var storage = {};
+  for (var i=0; i<sessionStorage.length; i++){
+    storage[key(i)] = sessionStorage.getItem(sessionStorage.key(0));
+  }
+  return storage;
+}
+
 document.getElementById('cookies').innerHTML = JSON.stringify(getCookies());
+document.getElementById('session').innerHTML = JSON.stringify(getSessionStorage());
+
 </script>
 
 
