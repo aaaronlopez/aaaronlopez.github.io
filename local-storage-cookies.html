@@ -15,9 +15,17 @@
 <div id="local"></div>
 
 <script type="text/javascript">
-sessionStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
-localStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
+try {
+	sessionStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
+} catch (e) {
+	alert("ERROR sessionStorage: " + e);
+}
 
+try {
+	localStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
+} catch (e) {
+	alert("ERROR localStorage: " + e);
+}
 
 function createCookie(name, value, days) {
     var date, expires;
