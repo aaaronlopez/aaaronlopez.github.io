@@ -4,10 +4,27 @@
 </head>
 <body>
 <h1>Drop a cookie and save local storage</h1>
-<script type="text/javascript">
 
+<script type="text/javascript">
+sessionStorage.setItem("mykey", "myvalue");
+
+function createCookie(name, value, days) {
+    var date, expires;
+    if (days) {
+        date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        expires = "; expires="+date.toGMTString();
+    } else {
+        expires = "";
+    }
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+createCookie(".25day", "myval", 0.25);
+createCookie(".5day", "myval", 0.5);
+createCookie("1day", "myval", 1);
+createCookie("100day", "myval", 100);
 </script>
-	
+
 	
 </body>
 
