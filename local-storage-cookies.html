@@ -1,14 +1,18 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drop a cookie and save local storage</title>
 </head>
 <body>
 <h1>Drop a cookie and save local storage</h1>
 <h2> COOKIES: </h2>
 <div id="cookies"></div>
+	
+<h2> SESSION STORAGE: </h2>
+<div id="session"></div>
 
 <script type="text/javascript">
-sessionStorage.setItem("mykey", "myvalue");
+sessionStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
 
 function createCookie(name, value, days) {
     var date, expires;
