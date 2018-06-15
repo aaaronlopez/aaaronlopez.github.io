@@ -19,10 +19,20 @@ function createCookie(name, value, days) {
     }
     return document.cookie = name+"="+value+expires+"; path=/";
 }
-var cookie3 = createCookie("1day" + Math.random().toString(36).substring(7), "myval", 1);
-var cookie4 = createCookie("100day" + Math.random().toString(36).substring(7), "myval", 100);
+var cookieA = createCookie("1day" + Math.random().toString(36).substring(7), "myval", 1);
+var cookieB = createCookie("100day" + Math.random().toString(36).substring(7), "myval", 100);
+	
+var getCookies = function() {
+  var pairs = document.cookie.split(";");
+  var cookies = {};
+  for (var i=0; i<pairs.length; i++){
+    var pair = pairs[i].split("=");
+    cookies[(pair[0]+'').trim()] = unescape(pair[1]);
+  }
+  return cookies;
+}
 
-alert("COOKIES: " + cookie1 + " " + cookie2 + " " + cookie3 + " " + cookie4);
+alert("COOKIES: " + getCookies());
 </script>
 
 	
