@@ -12,20 +12,7 @@
   branch.setIdentity('123456', function(err, link) {
   	console.log("IDENTITY: " + link);
   });
-  branch.init('key_live_josS8XQjiiSEp8XAEfOymdpdusaRIdAM', {
-     metadata: {
-        $deeplink_path: "product/328728/slim-sleeveless-vest-dress",
-       $canonical_url: "https://www.luulla.com/product/328728/slim-sleeveless-vest-dress",
-       app_links: "1",
-       product_id: "328728",
-       redirect_type: "product",
-       is_in_app_safari: "0",
-       is_meta_available: "1",
-       in_app_ios_app_name: "not_iphone",
-       branch_page_type: "product_detail_page",
-       branch_is_full_page_journey: "0"
-     }
-  });
+  branch.init('key_live_josS8XQjiiSEp8XAEfOymdpdusaRIdAM');
   var identity_id;
   branch.setIdentity('7891378193', function(err, link) {
   	console.log("IDENTITY: " + JSON.stringify(link));
