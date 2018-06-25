@@ -26,24 +26,18 @@
        branch_is_full_page_journey: "0"
      }
   });
+  var identity_id;
   branch.setIdentity('7891378193', function(err, link) {
   	console.log("IDENTITY: " + JSON.stringify(link));
+	identity_id = link.identity_id
   });
 
    
-//   branch.setBranchViewData({
-//     data: {
-//         '$deeplink_path': 'product/692111/two-pieces-prom-dress-two-piece-evening-dress-2017-prom-gown-2-pieces-party-dress-long-prom-dress-ev',
-//         '$canonical_url': 'https://www.luulla.com/product/692111/two-pieces-prom-dress-two-piece-evening-dress-2017-prom-gown-2-pieces-party-dress-long-prom-dress-ev',
-//         'app_links': '1',
-//         'product_id' : '692111',
-//         'redirect_type' : 'product',
-//         'is_in_app_safari' : '0',
-//         'in_app_ios_app_name' : 'none',
-//         'branch_page_type': 'product_detail_page',
-//         'branch_is_full_page_journey': '0'
-//       }
-//   });	
+  branch.setBranchViewData({
+    data: {
+        '$identity_id': identity_id,
+      }
+  });	
 
 // var lang_code;
 // if (navigator.languages && navigator.languages.length>0) {
