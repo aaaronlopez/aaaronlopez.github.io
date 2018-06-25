@@ -38,51 +38,7 @@
 	'abc': '123',
         '$identity_id': identity_id
       }
-  });	
-
-// var lang_code;
-// if (navigator.languages && navigator.languages.length>0) {
-//     lang_code = navigator.languages[0];
-// } else if (navigator.language) {
-//     lang_code = navigator.language;
-// }
-
-// // Change Journeys text if language is Spanish (es)
-// if (lang_code == 'es') {
-// 	branch.setBranchViewData(
-//         {
-//             data: {
-//                  "$journeys_title": 'Mi App',
-//                  "$journeys_description": 'Mi descripción',
-//                  "$journeys_button_get_has_app": 'Avrir',
-//                  "$journeys_button_get_no_app": 'Ver',
-//              }
-//          }
-//     );
-// }
-//   branch.setBranchViewData(
-//       {
-//           data: {
-//               "$ios_url": "https://google.com"
-//           },
-//           channel: 'JOUR',
-//           campaign: 'setBranchViewData',
-//           tags: [ 'override' ],
-// 	  override: true
-//       }
-//   );
-	
-  //var listenerA = function(event, data) { console.log(event, data); alert("Journey specific event");}
-  
-  //var listenerB = function(event, data) { console.log(event, data); alert("All events");}
-
-  // Specify an event to listen for
-  //branch.addListener('willShowJourney', listenerA);
-  //branch.addListener('willCloseJourney', listenerA);
-  //branch.addListener('didCloseJourney', listenerA);	
-
-  // Listen for all events
-  // branch.addListener(listenerB);
+  });
 </script>
 	<br><br><br><br><br><br><br><br><br><br>
 	<p style="font-family:'Roboto'">Add a description. Up to two lines of text.</p>
