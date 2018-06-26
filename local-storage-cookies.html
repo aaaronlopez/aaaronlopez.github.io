@@ -14,6 +14,9 @@
 <h2> LOCAL STORAGE: </h2>
 <div id="local"></div>
 
+<h2> REFERRER: </h2>
+<div id="referrer"></div>
+
 <script type="text/javascript">
 try {
 	sessionStorage.setItem("mykey" + Math.random().toString(36).substring(7), "myvalue");
@@ -54,6 +57,7 @@ function getCookies() {
 document.getElementById('cookies').innerHTML = JSON.stringify(getCookies());
 document.getElementById('session').innerHTML = JSON.stringify(Object.keys(sessionStorage));
 document.getElementById('local').innerHTML = JSON.stringify(Object.keys(localStorage));
+document.getElementById('referrer').innerHTML = document.referrer;
 
 </script>
 
