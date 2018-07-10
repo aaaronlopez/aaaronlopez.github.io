@@ -27,6 +27,16 @@
 
    	//branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL');
 	branch.init('key_test_odCTW2KijfSvn35uyiJO3efiysgSMhx2');
+		
+	branch.link({
+	    channel: 'facebook',
+	    feature: 'dashboard',
+	    data: {
+		$deeplink_path: 'my/deep/link/path'
+	    }
+	}, function(err, link) {
+	    console.log(err, link);
+	});
 
 	function triggerEvent() {
 		branch.track('.track()-custom_event');
