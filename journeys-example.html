@@ -18,6 +18,24 @@
    			function(err) { console.log(err); }
 		);
 
+		window.onbeforeunload = function() {
+			branch.logEvent(
+	   			"onbeforeunload",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
+		window.onhashchange = function() {
+			branch.logEvent(
+	   			"onhashchange",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
 </script>
 	<br><br><br><br><br><br><br><br><br><br>
 	<p style="font-family:'Roboto'">Add a description. Up to two lines of text.</p>
