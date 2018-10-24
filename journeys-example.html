@@ -36,6 +36,16 @@
 			);
 		};
 
+
+		window.onunload = function() {
+			branch.logEvent(
+	   			"onunload",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
 </script>
 	<br><br><br><br><br><br><br><br><br><br>
 	<p style="font-family:'Roboto'">Add a description. Up to two lines of text.</p>
