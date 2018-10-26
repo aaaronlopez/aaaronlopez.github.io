@@ -46,6 +46,24 @@
 			);
 		};
 
+		window.onpageshow = function() {
+			branch.logEvent(
+	   			"onpageshow",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
+		window.onpagehide = function() {
+			branch.logEvent(
+	   			"onpagehide",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
 </script>
 	<br><br><br><br><br><br><br><br><br><br>
 	<p style="font-family:'Roboto'">Add a description. Up to two lines of text.</p>
