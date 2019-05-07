@@ -345,13 +345,14 @@
         // Webkit browsers (iOS/Chrome)
         function redirectWebkit(url, urls) {
           setTimeout(function() {
+          	alert("document.webkithiddden: " + document.webkitHidden);
             if (!document.webkitHidden) {
               now = new Date().getTime();
-              if(now - lastFired < 5000) {//if it's been less than 5 seconds
+              if (now - lastFired < 5000) {//if it's been less than 5 seconds
                 redirect(redirectWebkit, urls);
               }
             }
-          }, 10000);
+          }, 1000);
 
           window.location = url;
         }
