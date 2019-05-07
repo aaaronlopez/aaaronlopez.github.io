@@ -278,7 +278,7 @@
 					return document.cookie.indexOf(redirectionCookie) === -1 ? false : true;
 				}
 				if (!shouldRouteToFallback()) {
-					document.cookie = redirectionCookie + "=true; expires=" + new Date(Date.now() + 300000).toGMTString();
+					document.cookie = redirectionCookie + "=true; expires=" + new Date(Date.now() + 6000).toGMTString();
 					window.top.location = "branchsters://?a=https%3A%2F%2Fdocs.branch.io%2Fapps%2Fios%2F%23__search&referrer=mat_click_id%3D35f18fec4fd647e2a7fbdd40bded306d-20190507-199088%26link_click_id%3D654418135621803596&mat_click_id=35f18fec4fd647e2a7fbdd40bded306d-20190507-199088";
 				}</script></body>
 </html>
