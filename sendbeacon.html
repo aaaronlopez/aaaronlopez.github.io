@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Send Bacon Example</title>
+</head>
+<body>
+  <button type="button" id="button">Send Response</button>
+
+  <script>
+    const url = "https://branchster.app.link/gvzg2M8xrR";
+    button.addEventListener("click", () => {
+      //let formData = new FormData();
+      //formData.append("name", "john does" );
+      if (navigator.sendBeacon) {
+        //formData.append("from", "sendBeacon");
+        alert('send le beacon');
+        navigator.sendBeacon(url);
+        navigator.sendBeacon("https://9d2t-alopez.branchbeta.link/3a44vMmBrR");
+      } else {
+        //formData.append("from", "fetch");
+        // fetch(url, {
+        //   type: "post",
+        //   body: formData
+        // });
+      }
+    });
+  </script>
+</body>
+</html>

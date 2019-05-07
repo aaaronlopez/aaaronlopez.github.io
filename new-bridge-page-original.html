@@ -255,13 +255,12 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		    var urls = ["branchsters://?mat_click_id=0a11fd405e8a47b50bb9defe29da704e-20190430-192600","https://google.com?referrer=mat_click_id%3D0a11fd405e8a47b50bb9defe29da704e-20190430-192600%26mat_deeplink%3Dbranchsters%253A%252F%252F%253Fmat_click_id%253D0a11fd405e8a47b50bb9defe29da704e-20190430-192600","https://google.com"];
+		var urls = ["branchsters://?mat_click_id=0a11fd405e8a47b50bb9defe29da704e-20190430-192600","https://google.com?referrer=mat_click_id%3D0a11fd405e8a47b50bb9defe29da704e-20190430-192600%26mat_deeplink%3Dbranchsters%253A%252F%252F%253Fmat_click_id%253D0a11fd405e8a47b50bb9defe29da704e-20190430-192600","https://google.com"];
         var redirectFn;
         var isFirefoxAndroid = false;
         var lastFired = new Date().getTime();
 
-        
-                var isForceBridgePage = false;
+        var isForceBridgePage = false;
 
         // iOS 9+ will be served this template instead of the iOS one, so detect mobile WebKit
         if (navigator.userAgent.match(/AppleWebKit.+Mobile/)) {
@@ -310,7 +309,7 @@
               if(!document.hidden) {
                 downloadApp();
               }
-            }, 2000);
+            }, 5000);
           }
         }
 
@@ -351,7 +350,7 @@
                 redirect(redirectWebkit, urls);
               }
             }
-          }, 2000);
+          }, 5000);
 
           window.location = url;
         }
