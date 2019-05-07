@@ -252,36 +252,33 @@
 				<div class="input-label text-light">See this content immediately after install</div>
 				<form class="form-get-the-app">
 					
-					<a href="https://m.wonder-shopping.com/event/familySale?mat_deeplink=wondershop%3A%2F%2Flauncher%3Fhttps%3A%2F%2Fg.wonder-shopping.com%2Fin%2Ffs%2Fbanner%2F214&referrer=mat_click_id%3D33d696d25cb64397b1c3411036a6c31d-20190502-199088%26link_click_id%3D652305143769833290&mat_click_id=33d696d25cb64397b1c3411036a6c31d-20190502-199088" class="cta-button text-light cta-button--no-app-icon cta-button--no-app-icon">Get The App</a>
+					<a href="https://www.apple.com/ios/ios-12/?mat_deeplink=branchsters%3A%2F%2F%3Fhttps%3A%2F%2Fdocs.branch.io%2Fapps%2Fios%2F%23__search&referrer=mat_click_id%3D71306ceaa0f84c299968cfa55c6fd80c-20190507-199088%26link_click_id%3D654411205738208839&mat_click_id=71306ceaa0f84c299968cfa55c6fd80c-20190507-199088" class="cta-button text-light cta-button--no-app-icon cta-button--no-app-icon">Get The App</a>
 				</form>
 			</div>
 		</div>
 	</div>
 <script type="text/javascript">
-				var numberOfTimesDisplayed = 0;
-				var redirectionCookie = "route_to_fallback_bnc";
+				var displayedCount = 0;
 				var handler = function() {
-  					if (!document.hidden) {
-						numberOfTimesDisplayed++;
+					if (!document.hidden) {
+						displayedCount++;
 					}
-					if (numberOfTimesDisplayed>1) {
-						window.top.location = "http://www.branch.io";
+					if (displayedCount > 1) {
+						window.top.location = "https://www.apple.com/ios/ios-12/?mat_deeplink=branchsters%3A%2F%2F%3Fhttps%3A%2F%2Fdocs.branch.io%2Fapps%2Fios%2F%23__search&referrer=mat_click_id%3D71306ceaa0f84c299968cfa55c6fd80c-20190507-199088%26link_click_id%3D654411205738208839&mat_click_id=71306ceaa0f84c299968cfa55c6fd80c-20190507-199088";
 					}
 				};
-				if (numberOfTimesDisplayed == 0) {
-					numberOfTimesDisplayed++;
+			
+				if (displayedCount === 0) {
 					document.addEventListener("visibilitychange", handler);
+					handler();
 				}
 
+				var redirectionCookie = "route_to_fallback_bnc";
 				function shouldRouteToFallback() {
 					return document.cookie.indexOf(redirectionCookie) === -1 ? false : true;
 				}
 				if (!shouldRouteToFallback()) {
-					document.cookie = redirectionCookie + "=true; expires=" + new Date(Date.now() + 10000).toGMTString();
-					window.top.location = "branchsters://?mat_click_id=0a11fd405e8a47b50bb9defe29da704e-20190430-192600";
-				} 
-				else {
-					//window.top.location = "https://m.wonder-shopping.com/event/familySale?mat_deeplink=wondershop%3A%2F%2Flauncher%3Fhttps%3A%2F%2Fg.wonder-shopping.com%2Fin%2Ffs%2Fbanner%2F214&referrer=mat_click_id%3D33d696d25cb64397b1c3411036a6c31d-20190502-199088%26link_click_id%3D652305143769833290&mat_click_id=33d696d25cb64397b1c3411036a6c31d-20190502-199088";
-				}
-			</script></body>
+					document.cookie = redirectionCookie + "=true; expires=" + new Date(Date.now() + 3000).toGMTString();
+					window.top.location = "branchsters://?https://docs.branch.io/apps/ios/&referrer=mat_click_id%3D71306ceaa0f84c299968cfa55c6fd80c-20190507-199088%26link_click_id%3D654411205738208839&mat_click_id=71306ceaa0f84c299968cfa55c6fd80c-20190507-199088#__search";
+				}</script></body>
 </html>
