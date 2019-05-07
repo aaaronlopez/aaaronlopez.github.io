@@ -147,7 +147,6 @@
         // Webkit browsers (iOS/Chrome)
         function redirectWebkit(url, urls) {
           setTimeout(function() {
-            alert("document.webkitHidden:  " + document.webkitHidden);
             if (!document.webkitHidden) {
               now = new Date().getTime();
               if(now - lastFired < 5000) {//if it's been less than 5 seconds
