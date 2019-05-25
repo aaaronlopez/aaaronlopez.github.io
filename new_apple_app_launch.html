@@ -30,17 +30,17 @@
                   iframe.style.display = "none";
                   iframe.contentDocument.write("\<script\>top.location.replace(\"" + location + "\");\<\/script\>");
               };
-              openAppInFrame("applenews:///AiwmTBWVGSuer73Hpgv1LVA");redirectToUrlAfterTimeout("https://branch.io", 0);
-          } else if (!socialMediaBot) {redirectToUrl("https://branch.io");
+              openAppInFrame("applenews:///AiwmTBWVGSuer73Hpgv1LVA");redirectToUrlAfterTimeout("https://www.wsj.com/articles/rattled-by-cyberattacks-hospitals-push-device-makers-to-improve-security-11557662400", 0);
+          } else if (!socialMediaBot) {redirectToUrl("https://www.wsj.com/articles/rattled-by-cyberattacks-hospitals-push-device-makers-to-improve-security-11557662400");
           }
           function getVersionNumber(majorVersion, minorVersion, pointVersion) {
               return (majorVersion * (1000 * 1000)) + (minorVersion * 1000) + pointVersion;
           }
           function isIOS() {
               var isIos = false;
-
+              
               if (curUserAgent.includes("ipad") || curUserAgent.includes("ipod") || curUserAgent.includes("iphone")) {
-
+                  
                   var match = iosPattern.exec(curUserAgent);
                   var majorVersion = match[1] != null ? parseInt(match[1]) : 0;
                   var minorVersion = match[2] != null ? parseInt(match[2]) : 0;
@@ -79,7 +79,7 @@
     <div class="content">
 
 <div class="inner-content has-icon">
-
+    
     <img class="app-icon" src="/images/Appicon_v5.png" alt="Apple News"
          srcset="/images/Appicon_v5.png 1x, /images/Appicon_v5@2x.png 2x,
          /images/Appicon_v5@3x.png 3x"/>
@@ -106,3 +106,4 @@
   </div>
 </body>
 </html>
+
