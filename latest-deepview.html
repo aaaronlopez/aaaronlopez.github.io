@@ -1,6 +1,166 @@
-<!DOCTYPE html>\n<html>\n<head>\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:700,300\" rel=\"stylesheet\" type=\"text/css\" />\n\t<style>\n\t\tbody {\n\t\t\tmargin: 0;\n\t\t\tword-wrap: break-word;\n\t\t}\n\t\t/* ============ Portrait ============ */\n\t\t.main-image {\n\t\t\twidth: 100%;\n\t\t\theight: 250px;\n\t\t\theight: 75vw;\n\t\t\tbackground-size: cover;\n\t\t\tbackground-position:top center;\n\t\t}\n\t\t#content-container {\n\t\t\tbox-sizing:border-box;\n\t\t\tpadding: 24px;\n\t\t\tmargin:0 24px 0 24px;\n\t\t\tbackground-color: #ffffff;\n\t\t}\n\t\t.app-title {\n\t\t\tfont-size: 14px;\n\t\t\tpadding-bottom: 11px;\n\t\t\ttext-transform: uppercase;\n\t\t}\n\t\t.card-title {\n\t\t\tfont-size: 33px;\n\t\t\tline-height: 36px;\n\t\t}\n\t\t.app-content {\n\t\t\tpadding-top: 10px;\n\t\t\tpadding-bottom:100px;\n\t\t\tfont-size: 20px;\n\t\t}\n\t\t.input-wrapper {\n\t\t\tposition: fixed;\n\t\t\tbottom: 0;\n\t\t\tleft: 0;\n\t\t\twidth:100%;\n\t\t\theight:200px;\n\t\t\tbackground-color: white;\n\t\t\t-webkit-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);\n\t\t\t-moz-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);\n\t\t\tbox-shadow: 0px -20px 20px -8px rgba(255,255,255,1);\n\t\t}\n\t\t.input-container {\n\t\t\twidth:100%;\n\t\t\tpadding:0 24px;\n\t\t\ttext-align:center;\n\t\t\t-webkit-box-sizing: border-box;\n\t\t\t-moz-box-sizing: border-box;\n\t\t\tbox-sizing: border-box;\n\t\t}\n\t\t.form-get-the-app {\n\t\t\ttext-align:center;\n\t\t\tpadding-top: 10px;\n\t\t\tborder-top: 2px solid #CECECE;\n\t\t}\n\t\t.form-get-the-app > input {\n\t\t\tmargin-right: 10px;\n\t\t\tpadding-top: 10px;\n\t\t\tpadding-bottom: 10px;\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tborder: 1px solid #979797;\n\t\t\tborder-radius: 2px;\n\t\t\tfont-size: 60px;\n\t\t\tcolor: #CECECE;\n\t\t\tline-height: 24px;\n\t\t\tpadding-left: 20px;\n\t\t}\n\t\t.input-label {\n\t\t\tpadding-bottom: 4px;\n\t\t\tfont-size: 13px;\n\t\t\tpadding-left: 10px;\n\t\t\tpadding-right: 10px;\n\t\t\toverflow: hidden;\n\t\t\tword-wrap: break-word;\n\t\t\tpadding-top: 4px;\n\t\t\ttext-align: center;\n\t\t}\n\t\t.app-icon {\n\t\t\tcontent:\" \";\n\t\t\tfloat:left;\n\t\t\tdisplay:inline-block;\n\t\t\twidth:62px;\n\t\t\theight: 62px;\n\t\t\tline-height: 62px;\n\t\t\tbackground-size:100% auto;\n\t\t}\n\t\t.cta-button {\n\t\t\tdisplay:block;\n\t\t\theight: 50px;\n\t\t\tline-height: 50px;\n\t\t\tmargin-bottom: 5px;\n\t\t\tbackground-color: #444444;\n\t\t\tborder-radius: 2px;\n\t\t\tfont-size: 20px;\n\t\t\tpadding:0 20px;\n\t\t\tmargin-left:70px;\n\t\t\tcolor: #FFFFFF;\n\t\t\ttext-align: center;\n\t\t\ttext-decoration: none;\n\t\t}\n\t\t/* No data (portrait) */\n\t\t@media only screen and (orientation: portrait) {\n\t\t\t.card--no-data .main-image {\n\t\t\t\tbackground-image: url(\"http://s3-us-west-1.amazonaws.com/branch-assets/b_stripes-small.png\");\n\t\t\t\tbackground-size: auto;\n\t\t\t\tbackground-position: top center;\n\t\t\t\tbackground-repeat: repeat;\n\t\t\t\theight: 190px;\n\t\t\t}\n\t\t\t.card--no-data > .app-icon {\n\t\t\t\tposition: absolute;\n\t\t\t\ttop: 160px;\n\t\t\t\tleft: 34px;\n\t\t\t}\n\t\t\t.card--no-data #content-container {\n\t\t\t\tmargin-top:20px;\n\t\t\t}\n\t\t}\n\t\t@media screen /* >= iPhone 5 */\n\t\tand (min-device-width: 321px) {\n\t\t\t.input-label {\n\t\t\t\tfont-size: 14px;\n\t\t\t}\n\t\t}\n\t\t@media only screen /* >= iPhone 6 */\n\t\tand (min-device-width: 375px)\n\t\tand (orientation: portrait) {\n\t\t\t.main-image {\n\t\t\t\theight:300px;\n\t\t\t\theight: 80vw;\n\t\t\t}\n\t\t\t.app-content {\n\t\t\t\tpadding-bottom:120px;\n\t\t\t}\n\t\t\t.input-wrapper {\n\t\t\t\theight:115px;\n\t\t\t}\n\t\t}\n\t\t@media only screen /* >= iPhone 6+ */\n\t\tand (min-device-width: 414px)\n\t\tand (orientation: portrait) {\n\t\t\t.main-image {\n\t\t\t\theight:390px;\n\t\t\t\theight: 95vw;\n\t\t\t}\n\t\t}\n\t\t/* ============ Landscape ============ */\n\t\t@media only screen and (orientation: landscape){\n\t\t\t.main-image {\n\t\t\t\tposition:fixed;\n\t\t\t\theight:100%;\n\t\t\t\theight:100vh;\n\t\t\t\twidth: 50%;\n\t\t\t}\n\t\t\t.input-wrapper {\n\t\t\t\tright:0;\n\t\t\t\tleft:auto;\n\t\t\t\twidth:50%;\n\t\t\t}\n\t\t\t#content-container {\n\t\t\t\tfloat:left;\n\t\t\t\twidth:50%;\n\t\t\t\tmargin-left:50%;\n\t\t\t}\n\t\t\t.input-wrapper {\n\t\t\t\theight:108px;\n\t\t\t}\n\t\t\t.app-content {\n\t\t\t\tpadding-bottom:110px;\n\t\t\t}\n\t\t\t.form-get-the-app {\n\t\t\t\tpadding-top:8px;\n\t\t\t}\n\t\t\t.input-container {\n\t\t\t\tleft: 50%;\n\t\t\t}\n\t\t\t.cta-button {\n\t\t\t\theight: 44px;\n\t\t\t\tline-height: 44px;\n\t\t\t\tpadding:0 5px;\n\t\t\t\tmargin-left:50px;\n\t\t\t}\n\t\t\t.app-icon {\n\t\t\t\twidth: 44px;\n\t\t\t\theight: 44px;\n\t\t\t}\n\t\t\t/* No data (landscape) */\n\t\t\t.card--no-data .main-image {\n\t\t\t\theight: 100%;\n\t\t\t}\n\t\t\t.card--no-data > .app-icon {\n\t\t\t\tdisplay:none;\n\t\t\t}\n\t\t\t.card--no-data #content-container {\n\t\t\t\tmargin-top:0;\n\t\t\t}\n\t\t}\n\t\t@media only screen /* >= iPhone 6 */\n\t\tand (min-device-width: 645px)\n\t\tand (orientation: landscape) {\n\t\t\t.form-get-the-app {\n\t\t\t\tpadding-top:8px;\n\t\t\t}\n\t\t\t.cta-button {\n\t\t\t\theight: 50px;\n\t\t\t\tline-height: 50px;\n\t\t\t\tmargin-bottom: 5px;\n\t\t\t\tpadding:0 20px;\n\t\t\t\tmargin-left:70px;\n\t\t\t}\n\t\t\t.app-icon {\n\t\t\t\twidth: 62px;\n\t\t\t\theight: 62px;\n\t\t\t\ttop:-2px;\n\t\t\t}\n\t\t}\n\t\t/* Reusables */\n\t\t.text-bold {\n\t\t\tfont-family: \"Open Sans\", Helvetica, serif;\n\t\t\tfont-weight: 700\n\t\t}\n\t\t.text-light {\n\t\t\tfont-family: \"Open Sans\", Helvetica, serif;\n\t\t\tfont-weight: 300;\n\t\t}\n\t\t.cta-button--no-app-icon {\n\t\t\tmargin-left:0;\n\t\t}\n\n\t</style>\n</head>\n<body>\n\t<div class=\"card card--no-data center\">\n\t\t<div class=\"main-image\"></div>\n\t\t<div class=\"app-icon\"> </div>\n\t\t<div id=\"content-container\">\n\t\t\t<div class=\"app-title text-bold\">BMF</div>\n\t\t\t<div class=\"card-title text-light\"></div>\n\t\t\t<div class=\"app-content text-light\"></div>\n\t\t</div>\n\t\t<div class=\"input-wrapper\">\n\t\t\t<div class=\"input-container\">\n\t\t\t\t
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,300" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            margin: 0;
+            word-wrap: break-word;
+        }
+        /* ============ Portrait ============ */
+        .main-image {
+            width: 125px;
+            height: 125px;
+            margin: 20vh auto 0 auto;
 
-	<a href="itms-appss://itunes.apple.com/app/id917737838?mat_deeplink=urischeme%3A%2F%2F&referrer=mat_click_id%3D5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265%26link_click_id%3D654477269809470984&mat_click_id=5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265" class=\"cta-button text-light cta-button--no-app-icon">Get The App</a>
-	<a href="urischeme://?mat_deeplink=urischeme%3A%2F%2F&referrer=mat_click_id%3D5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265%26link_click_id%3D654477269809470984&mat_click_id=5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265" class="cta-button text-light cta-button--no-app-icon">Open The App</a>
+                background-image: url(https://cdn.branch.io/branch-assets/1558632121933-og_image.jpg);
 
-\n\t\t\t</div>\n\t\t</div>\n\t</div>\n<script type=\"text/javascript\">\n\t\t\t\tvar handler = function() {\n\t\t\t\t\tif (!document.hidden) {\n\t\t\t\t\t\twindow.top.location = \"itms-appss://itunes.apple.com/app/id917737838?mat_deeplink=urischeme%3A%2F%2F&referrer=mat_click_id%3D5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265%26link_click_id%3D654477269809470984&mat_click_id=5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265\";\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t\tvar redirectionCookie = \"ignore_uri_redirect_bnc\";\n\t\t\t\tfunction hasCookie() {\n\t\t\t\t\treturn document.cookie.indexOf(redirectionCookie) === -1 ? false : true;\n\t\t\t\t}\n\t\t\t\tif (!hasCookie()) {\n\t\t\t\t\tdocument.cookie = redirectionCookie + \"=true; expires=\" + new Date(Date.now() + 300000).toGMTString();\n\t\t\t\t\twindow.top.location = \"urischeme://?mat_deeplink=urischeme%3A%2F%2F&referrer=mat_click_id%3D5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265%26link_click_id%3D654477269809470984&mat_click_id=5b176f2a11d94e658b1ec9e25ed25d9d-20190508-199265\";\n\t\t\t\t}\n\t\t\t\tdocument.addEventListener(\"visibilitychange\", handler);\n\t\t\t\t</script></body>\n</html>
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+        }
+        #content-container {
+            box-sizing:border-box;
+            padding: 24px;
+            margin:0 24px 0 24px;
+            background-color: #ffffff;
+        }
+        .app-title {
+            font-size: 14px;
+            text-align: center;
+            padding-bottom: 11px;
+            text-transform: uppercase;
+        }
+        .input-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width:100%;
+            height:110px !important;
+            background-color: white;
+            -webkit-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+            -moz-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+            box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+        }
+        .input-container {
+            width: 100%;
+            padding:0 24px;
+            text-align:center;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .form-get-the-app {
+            text-align:center;
+            padding-top: 10px;
+        }
+        .form-get-the-app > input {
+            margin-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #FFFFFF;
+            border: 1px solid #979797;
+            border-radius: 2px;
+            font-size: 60px;
+            color: #CECECE;
+            line-height: 24px;
+            padding-left: 20px;
+        }
+        .cta-button {
+            display: block;
+            height: 62px;
+            line-height:62px;
+            background-color: #06122F;
+            border-radius: 2px;
+            font-size: 20px;
+            padding:0 20px;
+            margin: 0 20px;
+            color: #FFFFFF;
+            text-align: center;
+            text-decoration: none;
+        }
+        /* No data (portrait) */
+        @media only screen and (orientation: portrait) {
+            .card--no-data .main-image {
+
+                background-image: url(https://cdn.branch.io/branch-assets/1558632121933-og_image.jpg);
+            }
+        }
+        /* ============ Landscape ============ */
+        @media only screen and (orientation: landscape){
+            .main-image {
+                margin: 30px auto 0 auto;
+            }
+            #content-container {
+              padding: 10px 24px;
+            }
+            .input-wrapper {
+              height: 80px !important;
+            }
+            .input-container {
+              width: 50%;
+              margin: 0 auto;
+            }
+            .form-get-the-app {
+                padding-top:8px;
+            }
+            .cta-button {
+                height: 44px;
+                line-height: 44px;
+            }
+        }
+        /* Reusables */
+        .text-bold {
+            font-family: "Open Sans", Helvetica, serif;
+            font-weight: 700
+        }
+        .text-light {
+            font-family: "Open Sans", Helvetica, serif;
+            font-weight: 400;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card center">
+        <div class="main-image"></div>
+        <div id="content-container">
+            <div class="app-title text-bold">[BRANCH] Branch Monster Factory (branchster.app.link)</div>
+        </div>
+        <div class="input-wrapper">
+            <div class="input-container">
+                <form class="form-get-the-app">
+                    <a href="https://branchster-alternate.app.link/RUwWukf7CX/?__branch_flow_type=viewapp&__branch_flow_id=669686310546172383&%24uri_redirect_mode=2&_t=669686310143519184" class="cta-button text-light">Get The App</a>
+                </form>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+function validateProtocol(url) {
+   var parser = document.createElement("a");
+   parser.href = url;
+   var protocol = parser.protocol.toLowerCase();
+   if ([ "javascript:", "vbscript:", "data:", "ftp:", ":", " "].indexOf(protocol) < 0) {
+      return url;}
+   return null;
+}
+
+					// window.onload = function() {
+					// 	window.top.location = validateProtocol("branchsters://open?link_click_id=669686310143519184");
+					// 	setTimeout(function timeout() {
+					// 		if (document.webkitHidden || document.hidden) { return; }
+					// 		window.top.location = validateProtocol("itms-appss://itunes.apple.com/app/id1058959277?mat_deeplink=ubereats%3A%2F%2Fstore%2Fbrowse%3FstoreUUID&referrer=mat_click_id%3D4059968beb364beba849690615e86fe3-20190523-7336%26link_click_id%3D660240599525641322&mat_click_id=4059968beb364beba849690615e86fe3-20190523-7336");
+					// 	}, 250);
+					// };
+
+					window.onload = function() {
+						window.top.location = validateProtocol("branchsters://open?link_click_id=669686310143519184");
+						setTimeout(function timeout() {
+							if (document.webkitHidden || document.hidden || document.visibilityState !== 'visible' || document.hidden !== false || document.webkitHidden document.hidden !== false) { return; }
+							window.top.location = validateProtocol("itms-appss://itunes.apple.com/app/id1058959277?mat_deeplink=ubereats%3A%2F%2Fstore%2Fbrowse%3FstoreUUID&referrer=mat_click_id%3D4059968beb364beba849690615e86fe3-20190523-7336%26link_click_id%3D660240599525641322&mat_click_id=4059968beb364beba849690615e86fe3-20190523-7336");
+						}, 250);
+					};
+
+				</script></body>
+</html>
