@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Web SDK/Journeys iFrame #1</title>
+  <script type="text/javascript">
+
+
+    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="dist/build.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback".split(" "), 0);
+
+          console.log("FROM THE CODE: referrer " + document.referrer);
+          console.log("FROM THE CODE:  window.location " + String(window.location));
+          branch.init(
+              "key_live_feebgAAhbH9Tv85H5wLQhpdaefiZv5Dv",
+              function (err, data) {
+                  if (err !== null) { alert(JSON.stringify(err.message)); }
+                  alert(JSON.stringify(data));
+              }
+          );
+  </script>
+</head>
+<body BGCOLOR="#ffe4c4">
+<H4>Web SDK/Journeys iFrame #1</H4>
+<BR>
+
+<P>
+<LI>PBE-79 Yahoo iFrame Banner Testing</LI>
+<LI>SDK-405 Testing</LI>
+<P>
+
+  <!-- this will cause the "Uncaught DOMException: Blocked a frame with origin \"http://qaauto2.branch.io\" from accessing a cross-origin frame."
+  error for SDK-405 testing
+<SCRIPT>
+  document.write(window.top.location.href);
+</SCRIPT>
+ -->
+
+</body>
+</html>
